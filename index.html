@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>翡翠厅 · 状态预览 v3</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:wght@300;400;600&family=DM+Serif+Display&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:wght@300;400;600&family=DM+Serif+Display&family=Oswald:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { background:#030A04; font-family:'Crimson Pro',serif; color:#F2EAD0; padding:40px 48px 80px; min-width:max-content; }
@@ -70,16 +70,13 @@ body { background:#030A04; font-family:'Crimson Pro',serif; color:#F2EAD0; paddi
   color:#1F2A33;
 }
 .c-face.c-red { color:#B3271E; }
-/* inner keyline frame — subtle premium detail, tinted to suit color */
-.c-face::before { content:''; position:absolute; inset:3px; border:1px solid currentColor; opacity:.13; border-radius:4px; pointer-events:none; }
-.c-lg.c-face::before { inset:4px; border-radius:5px; }
 /* corner indices — top-left + bottom-right (rotated), like a real card */
 .c-tl, .c-br { position:absolute; display:flex; flex-direction:column; align-items:center; line-height:.9; }
 .c-tl { top:3px; left:4px; }
 .c-br { bottom:3px; right:4px; transform:rotate(180deg); }
-.c-tl .cr, .c-br .cr { font-size:11px; font-weight:700; }
+.c-tl .cr, .c-br .cr { font-family:'Oswald',sans-serif; font-size:12px; font-weight:600; letter-spacing:-.3px; }
 .c-tl .cs, .c-br .cs { font-size:8px; line-height:1; margin-top:1px; }
-.c-lg .c-tl .cr, .c-lg .c-br .cr { font-size:17px; }
+.c-lg .c-tl .cr, .c-lg .c-br .cr { font-size:18px; }
 .c-lg .c-tl .cs, .c-lg .c-br .cs { font-size:12px; }
 .c-ct { font-size:17px; line-height:1; opacity:.9; }
 .c-lg .c-ct { font-size:30px; }
