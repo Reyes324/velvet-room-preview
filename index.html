@@ -61,18 +61,28 @@ body { background:#030A04; font-family:'Crimson Pro',serif; color:#F2EAD0; paddi
 /* ══════════════════════════════
    CARDS
 ══════════════════════════════ */
-.card { position:relative; border-radius:6px; font-family:Georgia,'Crimson Pro',serif; font-weight:700; display:flex; align-items:center; justify-content:center; }
+.card { position:relative; border-radius:7px; font-family:Georgia,'Crimson Pro',serif; font-weight:700; display:flex; align-items:center; justify-content:center; }
 .c-sm { width:36px; height:50px; }
-.c-lg { width:62px; height:84px; border-radius:10px; }
-.c-face { background:#F7F2E8; border:1px solid rgba(0,0,0,.07); box-shadow:0 3px 14px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.8); color:#1A1208; }
-.c-face.c-red { color:#C0392B; }
-.c-tl { position:absolute; top:3px; left:4px; display:flex; flex-direction:column; align-items:center; line-height:1.1; }
-.c-tl .cr { font-size:11px; font-weight:700; }
-.c-tl .cs { font-size:8px; line-height:1; }
-.c-lg .c-tl .cr { font-size:18px; }
-.c-lg .c-tl .cs { font-size:13px; }
-.c-ct { font-size:18px; line-height:1; }
-.c-lg .c-ct { font-size:32px; }
+.c-lg { width:62px; height:84px; border-radius:9px; }
+.c-face {
+  background:linear-gradient(158deg,#FDFAF2 0%,#F5EEDD 60%,#EFE6D0 100%);
+  box-shadow:0 4px 16px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.95), inset 0 0 0 1px rgba(40,25,5,.07);
+  color:#1F2A33;
+}
+.c-face.c-red { color:#B3271E; }
+/* inner keyline frame — subtle premium detail, tinted to suit color */
+.c-face::before { content:''; position:absolute; inset:3px; border:1px solid currentColor; opacity:.13; border-radius:4px; pointer-events:none; }
+.c-lg.c-face::before { inset:4px; border-radius:5px; }
+/* corner indices — top-left + bottom-right (rotated), like a real card */
+.c-tl, .c-br { position:absolute; display:flex; flex-direction:column; align-items:center; line-height:.9; }
+.c-tl { top:3px; left:4px; }
+.c-br { bottom:3px; right:4px; transform:rotate(180deg); }
+.c-tl .cr, .c-br .cr { font-size:11px; font-weight:700; }
+.c-tl .cs, .c-br .cs { font-size:8px; line-height:1; margin-top:1px; }
+.c-lg .c-tl .cr, .c-lg .c-br .cr { font-size:17px; }
+.c-lg .c-tl .cs, .c-lg .c-br .cs { font-size:12px; }
+.c-ct { font-size:17px; line-height:1; opacity:.9; }
+.c-lg .c-ct { font-size:30px; }
 .c-back { background:linear-gradient(145deg, #0B2410 0%, #040E06 100%); border:1px solid rgba(212,175,55,.18); box-shadow:0 2px 8px rgba(0,0,0,.5); }
 .c-back::after { content:'✦'; font-size:15px; color:rgba(212,175,55,.22); font-family:'Cinzel',serif; }
 .c-lg.c-back::after { font-size:26px; }
@@ -467,8 +477,8 @@ body { background:#030A04; font-family:'Crimson Pro',serif; color:#F2EAD0; paddi
   </div>
   <div class="hero-section">
     <div class="hero-cards">
-      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
+      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">8</span><span class="cs">♠</span></div></div>
+      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">J</span><span class="cs">♥</span></div></div>
     </div>
     <div class="hero-info"><div class="hero-name">Augustine（我）</div><div class="hero-chips">¥12,549</div></div>
   </div>
@@ -493,8 +503,8 @@ body { background:#030A04; font-family:'Crimson Pro',serif; color:#F2EAD0; paddi
   </div>
   <div class="hero-section">
     <div class="hero-cards">
-      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
+      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">8</span><span class="cs">♠</span></div></div>
+      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">J</span><span class="cs">♥</span></div></div>
     </div>
     <div class="hero-info"><div class="hero-name">Augustine（我）</div><div class="hero-chips">¥12,549</div></div>
   </div>
@@ -519,8 +529,8 @@ body { background:#030A04; font-family:'Crimson Pro',serif; color:#F2EAD0; paddi
   </div>
   <div class="hero-section">
     <div class="hero-cards">
-      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
+      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">8</span><span class="cs">♠</span></div></div>
+      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">J</span><span class="cs">♥</span></div></div>
     </div>
     <div class="hero-info"><div class="hero-name">Augustine（我）</div><div class="hero-chips">¥12,549</div></div>
   </div>
@@ -545,8 +555,8 @@ body { background:#030A04; font-family:'Crimson Pro',serif; color:#F2EAD0; paddi
   </div>
   <div class="hero-section">
     <div class="hero-cards">
-      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
+      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">8</span><span class="cs">♠</span></div></div>
+      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">J</span><span class="cs">♥</span></div></div>
     </div>
     <div class="hero-info"><div class="hero-name">Augustine（我）</div><div class="hero-chips">¥12,549</div></div>
   </div>
@@ -587,8 +597,8 @@ body { background:#030A04; font-family:'Crimson Pro',serif; color:#F2EAD0; paddi
   </div>
   <div class="hero-section">
     <div class="hero-cards">
-      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
+      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">8</span><span class="cs">♠</span></div></div>
+      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">J</span><span class="cs">♥</span></div></div>
     </div>
     <div class="hero-info"><div class="hero-name">Augustine（我）</div><div class="hero-chips">¥12,549</div></div>
   </div>
@@ -628,16 +638,16 @@ body { background:#030A04; font-family:'Crimson Pro',serif; color:#F2EAD0; paddi
   <div class="table-oval">
     <div class="pot"><div class="street-tag">翻牌</div><div class="pot-label">底池</div><div class="pot-amt">¥730</div></div>
     <div class="community">
-      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">Q</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">3</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">Q</span><span class="cs">♦</span></div><div class="c-ct">♦</div></div>
+      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">Q</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">Q</span><span class="cs">♠</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">3</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">3</span><span class="cs">♥</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">Q</span><span class="cs">♦</span></div><div class="c-ct">♦</div><div class="c-br"><span class="cr">Q</span><span class="cs">♦</span></div></div>
       <div class="card c-sm c-back"></div><div class="card c-sm c-back"></div>
     </div>
   </div>
   <div class="hero-section">
     <div class="hero-cards">
-      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
+      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">8</span><span class="cs">♠</span></div></div>
+      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">J</span><span class="cs">♥</span></div></div>
     </div>
     <div class="hero-info"><div class="hero-name">Augustine（我）</div><div class="hero-chips">¥12,299</div></div>
   </div>
@@ -666,17 +676,17 @@ body { background:#030A04; font-family:'Crimson Pro',serif; color:#F2EAD0; paddi
   <div class="table-oval" style="border-color:rgba(212,175,55,.28);">
     <div class="pot"><div class="street-tag">转牌</div><div class="pot-label">底池</div><div class="pot-amt">¥1,130</div></div>
     <div class="community">
-      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">Q</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">3</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">Q</span><span class="cs">♦</span></div><div class="c-ct">♦</div></div>
-      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">7</span><span class="cs">♣</span></div><div class="c-ct">♣</div></div>
+      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">Q</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">Q</span><span class="cs">♠</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">3</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">3</span><span class="cs">♥</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">Q</span><span class="cs">♦</span></div><div class="c-ct">♦</div><div class="c-br"><span class="cr">Q</span><span class="cs">♦</span></div></div>
+      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">7</span><span class="cs">♣</span></div><div class="c-ct">♣</div><div class="c-br"><span class="cr">7</span><span class="cs">♣</span></div></div>
       <div class="card c-sm c-back"></div>
     </div>
   </div>
   <div class="hero-section">
     <div class="hero-cards">
-      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
+      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">8</span><span class="cs">♠</span></div></div>
+      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">J</span><span class="cs">♥</span></div></div>
     </div>
     <div class="hero-info"><div class="hero-name">Augustine（我）</div><div class="hero-chips">¥12,099</div></div>
   </div>
@@ -711,17 +721,17 @@ body { background:#030A04; font-family:'Crimson Pro',serif; color:#F2EAD0; paddi
   <div class="table-oval">
     <div class="pot"><div class="street-tag">河牌</div><div class="pot-label">底池</div><div class="pot-amt">¥1,530</div></div>
     <div class="community">
-      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">Q</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">3</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">Q</span><span class="cs">♦</span></div><div class="c-ct">♦</div></div>
-      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">7</span><span class="cs">♣</span></div><div class="c-ct">♣</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">2</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
+      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">Q</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">Q</span><span class="cs">♠</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">3</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">3</span><span class="cs">♥</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">Q</span><span class="cs">♦</span></div><div class="c-ct">♦</div><div class="c-br"><span class="cr">Q</span><span class="cs">♦</span></div></div>
+      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">7</span><span class="cs">♣</span></div><div class="c-ct">♣</div><div class="c-br"><span class="cr">7</span><span class="cs">♣</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">2</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">2</span><span class="cs">♥</span></div></div>
     </div>
   </div>
   <div class="hero-section">
     <div class="hero-cards">
-      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
+      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">8</span><span class="cs">♠</span></div></div>
+      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">J</span><span class="cs">♥</span></div></div>
     </div>
     <div class="hero-info"><div class="hero-name">Augustine（我）</div><div class="hero-chips">¥11,899</div><div class="hero-bet">已投入 ¥200</div></div>
   </div>
@@ -764,17 +774,17 @@ body { background:#030A04; font-family:'Crimson Pro',serif; color:#F2EAD0; paddi
   <div class="table-oval">
     <div class="pot"><div class="street-tag">摊牌</div><div class="pot-label">底池</div><div class="pot-amt">¥1,780</div></div>
     <div class="community">
-      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">Q</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">3</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">Q</span><span class="cs">♦</span></div><div class="c-ct">♦</div></div>
-      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">7</span><span class="cs">♣</span></div><div class="c-ct">♣</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">2</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
+      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">Q</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">Q</span><span class="cs">♠</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">3</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">3</span><span class="cs">♥</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">Q</span><span class="cs">♦</span></div><div class="c-ct">♦</div><div class="c-br"><span class="cr">Q</span><span class="cs">♦</span></div></div>
+      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">7</span><span class="cs">♣</span></div><div class="c-ct">♣</div><div class="c-br"><span class="cr">7</span><span class="cs">♣</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">2</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">2</span><span class="cs">♥</span></div></div>
     </div>
   </div>
   <div class="hero-section">
     <div class="hero-cards">
-      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
+      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">8</span><span class="cs">♠</span></div></div>
+      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">J</span><span class="cs">♥</span></div></div>
     </div>
     <div class="hero-info"><div class="hero-name">Augustine（我）</div><div class="hero-chips">¥11,899</div><div class="hero-bet">一对 Q（J 踢脚）</div></div>
   </div>
@@ -793,11 +803,11 @@ body { background:#030A04; font-family:'Crimson Pro',serif; color:#F2EAD0; paddi
   <div class="table-oval" style="opacity:.4">
     <div class="pot"><div class="pot-label">底池</div><div class="pot-amt">¥1,780</div></div>
     <div class="community">
-      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">Q</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">3</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">Q</span><span class="cs">♦</span></div><div class="c-ct">♦</div></div>
-      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">7</span><span class="cs">♣</span></div><div class="c-ct">♣</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">2</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
+      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">Q</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">Q</span><span class="cs">♠</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">3</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">3</span><span class="cs">♥</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">Q</span><span class="cs">♦</span></div><div class="c-ct">♦</div><div class="c-br"><span class="cr">Q</span><span class="cs">♦</span></div></div>
+      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">7</span><span class="cs">♣</span></div><div class="c-ct">♣</div><div class="c-br"><span class="cr">7</span><span class="cs">♣</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">2</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">2</span><span class="cs">♥</span></div></div>
     </div>
   </div>
   <div class="modal-overlay" id="modal12">
@@ -841,17 +851,17 @@ body { background:#030A04; font-family:'Crimson Pro',serif; color:#F2EAD0; paddi
   <div class="table-oval">
     <div class="pot"><div class="street-tag">河牌</div><div class="pot-label">底池</div><div class="pot-amt">¥2,030</div></div>
     <div class="community">
-      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">Q</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">3</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">Q</span><span class="cs">♦</span></div><div class="c-ct">♦</div></div>
-      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">7</span><span class="cs">♣</span></div><div class="c-ct">♣</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">2</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
+      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">Q</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">Q</span><span class="cs">♠</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">3</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">3</span><span class="cs">♥</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">Q</span><span class="cs">♦</span></div><div class="c-ct">♦</div><div class="c-br"><span class="cr">Q</span><span class="cs">♦</span></div></div>
+      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">7</span><span class="cs">♣</span></div><div class="c-ct">♣</div><div class="c-br"><span class="cr">7</span><span class="cs">♣</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">2</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">2</span><span class="cs">♥</span></div></div>
     </div>
   </div>
   <div class="hero-section">
     <div class="hero-cards">
-      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
+      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">8</span><span class="cs">♠</span></div></div>
+      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">J</span><span class="cs">♥</span></div></div>
     </div>
     <div class="hero-info"><div class="hero-name">Augustine（我）</div><div class="hero-chips">¥11,899</div><div class="hero-bet">已投入 ¥200</div></div>
   </div>
@@ -873,8 +883,8 @@ body { background:#030A04; font-family:'Crimson Pro',serif; color:#F2EAD0; paddi
   <div class="table-oval" style="opacity:.5">
     <div class="pot"><div class="pot-label">底池</div><div class="pot-amt">¥680</div></div>
     <div class="community">
-      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">Q</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">3</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
+      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">Q</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">Q</span><span class="cs">♠</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">3</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">3</span><span class="cs">♥</span></div></div>
       <div class="card c-sm c-back"></div><div class="card c-sm c-back"></div><div class="card c-sm c-back"></div>
     </div>
   </div>
@@ -921,16 +931,16 @@ body { background:#030A04; font-family:'Crimson Pro',serif; color:#F2EAD0; paddi
   <div class="table-oval">
     <div class="pot"><div class="street-tag">翻牌</div><div class="pot-label">底池</div><div class="pot-amt">¥1,240</div></div>
     <div class="community">
-      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">Q</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">3</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
-      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">Q</span><span class="cs">♦</span></div><div class="c-ct">♦</div></div>
+      <div class="card c-sm c-face"><div class="c-tl"><span class="cr">Q</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">Q</span><span class="cs">♠</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">3</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">3</span><span class="cs">♥</span></div></div>
+      <div class="card c-sm c-face c-red"><div class="c-tl"><span class="cr">Q</span><span class="cs">♦</span></div><div class="c-ct">♦</div><div class="c-br"><span class="cr">Q</span><span class="cs">♦</span></div></div>
       <div class="c-empty"></div><div class="c-empty"></div>
     </div>
   </div>
   <div class="hero-section">
     <div class="hero-cards">
-      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div></div>
-      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div></div>
+      <div class="card c-lg c-face"><div class="c-tl"><span class="cr">8</span><span class="cs">♠</span></div><div class="c-ct">♠</div><div class="c-br"><span class="cr">8</span><span class="cs">♠</span></div></div>
+      <div class="card c-lg c-face c-red"><div class="c-tl"><span class="cr">J</span><span class="cs">♥</span></div><div class="c-ct">♥</div><div class="c-br"><span class="cr">J</span><span class="cs">♥</span></div></div>
     </div>
     <div class="hero-info"><div class="hero-name">Augustine（我）</div><div class="hero-chips">¥12,549</div></div>
   </div>
